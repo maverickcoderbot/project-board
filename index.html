@@ -79,152 +79,6 @@
 <!-- BOOKTALES BOARD -->
 <div id="booktales" class="board">
   <div class="column">
-    <div class="column-header"><span class="dot done"></span> Done <span class="count">14</span></div>
-    <div class="column-body">
-      <div class="card">
-        <div class="card-title">BE-01: Kill STUB gateway in prod</div>
-        <div class="card-meta"><span class="tag critical">critical</span><span class="tag pr">PR #1</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">BE-02: Fail-fast on insecure admin defaults</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">BE-03: Wire refund to gateway</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">BE-04: Gateway timeouts (5s/15s)</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">BE-05: Admin login rate limiting</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">FE-01: Security headers (CSP, HSTS, etc.)</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">FE-02: Fix SITE_URL prod default</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">FE-03: Error boundaries</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">FE-09: Official contact email set</div>
-        <div class="card-meta"><span class="tag low">low</span><span class="tag pr">PR #1</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">BE-06: Webhook amount/currency verification</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE PR #4</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">BE-08: Global exception handler</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE PR #3</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">FE-04: Harden admin token (httpOnly cookies)</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">FE PR #4</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">FE-05: Middleware for admin auth</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">FE PR #4</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">FE-07: Allow real image hosts in next.config</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">FE PR #3</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="column-header"><span class="dot review"></span> In Review <span class="count">2</span></div>
-    <div class="column-body">
-      <div class="card">
-        <div class="card-title">India-only region switch (backend)</div>
-        <div class="card-meta"><span class="tag phase">feature flag</span><span class="tag pr">BE PR #2</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">India-only region switch (frontend)</div>
-        <div class="card-meta"><span class="tag phase">feature flag</span><span class="tag pr">FE PR #2</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="column-header"><span class="dot doing"></span> In Progress <span class="count">1</span></div>
-    <div class="column-body">
-      <div class="card">
-        <div class="card-title">PAY-01: Choose payment gateway</div>
-        <div class="card-meta"><span class="tag phase">Phase 2</span><span class="tag pr">Razorpay ✓</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="column-header"><span class="dot todo"></span> To Do — Phase 1 <span class="count">4</span></div>
-    <div class="column-body">
-      <div class="card">
-        <div class="card-title">BE-07: Stripe webhook replay check</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">BE-09: Tests for payment/money paths</div>
-        <div class="card-meta"><span class="tag low">low</span><span class="tag phase">Phase 1</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">FE-06: Wire real checkout flow</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">FE-08: E2E tests for checkout + admin</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="column-header"><span class="dot todo"></span> To Do — User Auth <span class="count">8</span></div>
-    <div class="column-body">
-      <div class="card">
-        <div class="card-title">AUTH-01: OTP login endpoint (email or phone)</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AUTH-02: OTP verify + JWT session</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AUTH-03: User profile endpoints (name/address)</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AUTH-04: User entity/table</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AUTH-05: Login/signup page (email or phone + OTP)</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AUTH-06: Profile page (edit name/address)</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AUTH-07: Auth context + protected routes</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1.5</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AUTH-08: Link orders to authenticated user</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1.5</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
     <div class="column-header"><span class="dot todo"></span> To Do — Phase 2-4 <span class="count">23</span></div>
     <div class="column-body">
       <div class="card">
@@ -318,6 +172,152 @@
       <div class="card">
         <div class="card-title">DEP-08: RDS backup strategy</div>
         <div class="card-meta"><span class="tag phase">Phase 4</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot todo"></span> To Do — User Auth <span class="count">8</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">AUTH-01: OTP login endpoint (email or phone)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-02: OTP verify + JWT session</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-03: User profile endpoints (name/address)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-04: User entity/table</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-05: Login/signup page (email or phone + OTP)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-06: Profile page (edit name/address)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-07: Auth context + protected routes</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1.5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-08: Link orders to authenticated user</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1.5</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot todo"></span> To Do — Phase 1 <span class="count">4</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">BE-07: Stripe webhook replay check</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">BE-09: Tests for payment/money paths</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag phase">Phase 1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-06: Wire real checkout flow</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-08: E2E tests for checkout + admin</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot doing"></span> In Progress <span class="count">1</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">PAY-01: Choose payment gateway</div>
+        <div class="card-meta"><span class="tag phase">Phase 2</span><span class="tag pr">Razorpay ✓</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot review"></span> In Review <span class="count">2</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">India-only region switch (backend)</div>
+        <div class="card-meta"><span class="tag phase">feature flag</span><span class="tag pr">BE PR #2</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">India-only region switch (frontend)</div>
+        <div class="card-meta"><span class="tag phase">feature flag</span><span class="tag pr">FE PR #2</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot done"></span> Done <span class="count">14</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">BE-01: Kill STUB gateway in prod</div>
+        <div class="card-meta"><span class="tag critical">critical</span><span class="tag pr">PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">BE-02: Fail-fast on insecure admin defaults</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">BE-03: Wire refund to gateway</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">BE-04: Gateway timeouts (5s/15s)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">BE-05: Admin login rate limiting</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-01: Security headers (CSP, HSTS, etc.)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-02: Fix SITE_URL prod default</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-03: Error boundaries</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-09: Official contact email set</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag pr">PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">BE-06: Webhook amount/currency verification</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE PR #4</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">BE-08: Global exception handler</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE PR #3</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-04: Harden admin token (httpOnly cookies)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">FE PR #4</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-05: Middleware for admin auth</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">FE PR #4</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-07: Allow real image hosts in next.config</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">FE PR #3</span></div>
       </div>
     </div>
   </div>
