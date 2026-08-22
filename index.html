@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nik's Project Board</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; min-height: 100vh; }
+
+  header { background: #161b22; border-bottom: 1px solid #30363d; padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+  header h1 { font-size: 20px; font-weight: 600; }
+  header .badge { background: #238636; color: #fff; font-size: 12px; padding: 2px 8px; border-radius: 12px; }
+
+  .tabs { display: flex; gap: 0; background: #161b22; border-bottom: 1px solid #30363d; padding: 0 24px; }
+  .tab { padding: 12px 16px; cursor: pointer; font-size: 14px; color: #8b949e; border-bottom: 2px solid transparent; transition: all 0.2s; }
+  .tab:hover { color: #c9d1d9; }
+  .tab.active { color: #c9d1d9; border-bottom-color: #f78166; }
+
+  .board { display: flex; gap: 16px; padding: 24px; overflow-x: auto; min-height: calc(100vh - 110px); align-items: flex-start; }
+  .board.hidden { display: none; }
+
+  .column { min-width: 300px; max-width: 340px; flex-shrink: 0; background: #161b22; border-radius: 8px; border: 1px solid #30363d; }
+  .column-header { padding: 12px 16px; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #30363d; }
+  .column-header .count { background: #30363d; color: #8b949e; font-size: 12px; padding: 1px 8px; border-radius: 10px; font-weight: 400; }
+  .column-body { padding: 8px; display: flex; flex-direction: column; gap: 8px; max-height: calc(100vh - 200px); overflow-y: auto; }
+
+  .card { background: #0d1117; border: 1px solid #30363d; border-radius: 6px; padding: 12px; cursor: default; transition: border-color 0.2s; }
+  .card:hover { border-color: #58a6ff; }
+  .card-title { font-size: 13px; font-weight: 500; line-height: 1.4; }
+  .card-meta { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+  .tag { font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: 500; }
+  .tag.critical { background: #da3633; color: #fff; }
+  .tag.high { background: #d29922; color: #fff; }
+  .tag.medium { background: #388bfd; color: #fff; }
+  .tag.low { background: #30363d; color: #8b949e; }
+  .tag.phase { background: #1f6feb33; color: #58a6ff; border: 1px solid #1f6feb55; }
+  .tag.pr { background: #23863633; color: #3fb950; border: 1px solid #23863655; }
+  .tag.category { background: #8b5cf633; color: #a78bfa; border: 1px solid #8b5cf655; }
+  .tag.qol { background: #f7816633; color: #f78166; border: 1px solid #f7816655; }
+  .tag.tinker { background: #d2992233; color: #d29922; border: 1px solid #d2992255; }
+  .tag.yt { background: #ff000033; color: #ff6b6b; border: 1px solid #ff000044; }
+
+  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .dot.todo { background: #484f58; }
+  .dot.doing { background: #d29922; }
+  .dot.done { background: #3fb950; }
+  .dot.review { background: #a371f7; }
+
+  .summary { padding: 24px; }
+  .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 16px; }
+  .stat-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; text-align: center; }
+  .stat-number { font-size: 36px; font-weight: 700; }
+  .stat-number.green { color: #3fb950; }
+  .stat-number.yellow { color: #d29922; }
+  .stat-number.blue { color: #58a6ff; }
+  .stat-number.red { color: #f78166; }
+  .stat-label { font-size: 13px; color: #8b949e; margin-top: 4px; }
+
+  .column-body::-webkit-scrollbar { width: 6px; }
+  .column-body::-webkit-scrollbar-track { background: transparent; }
+  .column-body::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Nik's Project Board</h1>
+  <span class="badge">14 / 41 Booktales</span>
+</header>
+
+<div class="tabs">
+  <div class="tab active" onclick="showBoard('booktales')">Booktales</div>
+  <div class="tab" onclick="showBoard('roadmap')">Build & Learn</div>
+  <div class="tab" onclick="showBoard('youtube')">YouTube</div>
+  <div class="tab" onclick="showBoard('summary')">Overview</div>
+</div>
+
+<!-- BOOKTALES BOARD -->
+<div id="booktales" class="board">
+  <div class="column">
+    <div class="column-header"><span class="dot done"></span> Done <span class="count">14</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">BE-01: Kill STUB gateway in prod</div>
+        <div class="card-meta"><span class="tag critical">critical</span><span class="tag pr">PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">BE-02: Fail-fast on insecure admin defaults</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">BE-03: Wire refund to gateway</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">BE-04: Gateway timeouts (5s/15s)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">BE-05: Admin login rate limiting</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-01: Security headers (CSP, HSTS, etc.)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-02: Fix SITE_URL prod default</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-03: Error boundaries</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-09: Official contact email set</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag pr">PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">BE-06: Webhook amount/currency verification</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE PR #4</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">BE-08: Global exception handler</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE PR #3</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-04: Harden admin token (httpOnly cookies)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">FE PR #4</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-05: Middleware for admin auth</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">FE PR #4</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-07: Allow real image hosts in next.config</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">FE PR #3</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot review"></span> In Review <span class="count">2</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">India-only region switch (backend)</div>
+        <div class="card-meta"><span class="tag phase">feature flag</span><span class="tag pr">BE PR #2</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">India-only region switch (frontend)</div>
+        <div class="card-meta"><span class="tag phase">feature flag</span><span class="tag pr">FE PR #2</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot doing"></span> In Progress <span class="count">1</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">PAY-01: Choose payment gateway</div>
+        <div class="card-meta"><span class="tag phase">Phase 2</span><span class="tag pr">Razorpay ✓</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot todo"></span> To Do — Phase 1 <span class="count">4</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">BE-07: Stripe webhook replay check</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">BE-09: Tests for payment/money paths</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag phase">Phase 1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-06: Wire real checkout flow</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-08: E2E tests for checkout + admin</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot todo"></span> To Do — User Auth <span class="count">8</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">AUTH-01: OTP login endpoint (email or phone)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-02: OTP verify + JWT session</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-03: User profile endpoints (name/address)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-04: User entity/table</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-05: Login/signup page (email or phone + OTP)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-06: Profile page (edit name/address)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-07: Auth context + protected routes</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1.5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-08: Link orders to authenticated user</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1.5</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot todo"></span> To Do — Phase 2-4 <span class="count">23</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">PAY-02: Create Razorpay account + get keys</div>
+        <div class="card-meta"><span class="tag phase">Phase 2</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">PAY-03: Wire backend with real Razorpay keys</div>
+        <div class="card-meta"><span class="tag phase">Phase 2</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">PAY-04: Wire frontend Razorpay Checkout</div>
+        <div class="card-meta"><span class="tag phase">Phase 2</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">PAY-05: Test e2e payment with test keys</div>
+        <div class="card-meta"><span class="tag phase">Phase 2</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">PAY-06: Webhook endpoint + signature verification</div>
+        <div class="card-meta"><span class="tag phase">Phase 2</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AWS-01: Account + IAM setup</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AWS-02: EC2 t2.micro instance</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AWS-03: RDS PostgreSQL</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AWS-04: S3 for static assets</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AWS-05: CloudFront CDN</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AWS-06: SES for emails</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AWS-07: Java 21 + deploy JAR</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AWS-08: systemd service</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AWS-09: Nginx reverse proxy</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AWS-10: SSL cert</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">DEP-01: Deploy backend to EC2</div>
+        <div class="card-meta"><span class="tag phase">Phase 4</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">DEP-02: Deploy frontend to Vercel</div>
+        <div class="card-meta"><span class="tag phase">Phase 4</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">DEP-03: Domain + DNS</div>
+        <div class="card-meta"><span class="tag phase">Phase 4</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">DEP-04: Wire domain to Vercel + EC2</div>
+        <div class="card-meta"><span class="tag phase">Phase 4</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">DEP-05: SES for order emails</div>
+        <div class="card-meta"><span class="tag phase">Phase 4</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">DEP-06: Full smoke test</div>
+        <div class="card-meta"><span class="tag phase">Phase 4</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">DEP-07: CloudWatch monitoring</div>
+        <div class="card-meta"><span class="tag phase">Phase 4</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">DEP-08: RDS backup strategy</div>
+        <div class="card-meta"><span class="tag phase">Phase 4</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BUILD & LEARN BOARD -->
+<div id="roadmap" class="board hidden">
+  <div class="column">
+    <div class="column-header"><span class="dot doing"></span> In Progress <span class="count">1</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">Booktales AWS Deployment</div>
+        <div class="card-meta"><span class="tag qol">top priority</span><span class="tag category">infra</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot todo"></span> QoL & Time Savers <span class="count">5</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">Docker Local Dev Environment</div>
+        <div class="card-meta"><span class="tag qol">saves 15min</span><span class="tag category">devops</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Git Commit Message Generator CLI</div>
+        <div class="card-meta"><span class="tag qol">saves 30s/commit</span><span class="tag category">python + ai</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Dotfiles Repo</div>
+        <div class="card-meta"><span class="tag qol">portable setup</span><span class="tag category">git</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CI/CD Pipeline for Booktales</div>
+        <div class="card-meta"><span class="tag qol">auto-deploy</span><span class="tag category">github actions</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">YouTube Content Ideas Tracker</div>
+        <div class="card-meta"><span class="tag qol">no blank page</span><span class="tag category">content</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot todo"></span> Tinkering & Experimental <span class="count">4</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">Local LLM Playground (Ollama)</div>
+        <div class="card-meta"><span class="tag tinker">experiment</span><span class="tag category">ai/llm</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">RAG Over Your Codebase</div>
+        <div class="card-meta"><span class="tag tinker">experiment</span><span class="tag category">ai/llm</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Discord Bot Extensions</div>
+        <div class="card-meta"><span class="tag tinker">experiment</span><span class="tag category">bot dev</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Gaming Clip Manager</div>
+        <div class="card-meta"><span class="tag tinker">experiment</span><span class="tag category">ffmpeg</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- YOUTUBE BOARD -->
+<div id="youtube" class="board hidden">
+  <div class="column">
+    <div class="column-header"><span class="dot todo"></span> Ideas <span class="count">10</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">I Built a Full Bookstore in Spring Boot + Next.js</div>
+        <div class="card-meta"><span class="tag yt">20-30 min</span><span class="tag category">build-along</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Running AI Models Locally for FREE (Ollama)</div>
+        <div class="card-meta"><span class="tag yt">12-15 min</span><span class="tag category">tutorial</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">I Made My AI Assistant Run My Dev Workflow</div>
+        <div class="card-meta"><span class="tag yt">15-20 min</span><span class="tag category">showcase</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Deploying a Java App on AWS Free Tier</div>
+        <div class="card-meta"><span class="tag yt">25-30 min</span><span class="tag category">tutorial</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Build a RAG System Over Your Own Code</div>
+        <div class="card-meta"><span class="tag yt">20-25 min</span><span class="tag category">build-along</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Docker Compose for Java Devs</div>
+        <div class="card-meta"><span class="tag yt">10-12 min</span><span class="tag category">tutorial</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Building a Payment System with Razorpay</div>
+        <div class="card-meta"><span class="tag yt">15-20 min</span><span class="tag category">tutorial</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">My Developer Setup (WSL2 + Tools + AI)</div>
+        <div class="card-meta"><span class="tag yt">10-15 min</span><span class="tag category">showcase</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Spring Boot Security — Things Tutorials Don't Tell You</div>
+        <div class="card-meta"><span class="tag yt">15-20 min</span><span class="tag category">educational</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Next.js Security Headers Before Going Live</div>
+        <div class="card-meta"><span class="tag yt">8-10 min</span><span class="tag category">tutorial</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot doing"></span> Scripting <span class="count">0</span></div>
+    <div class="column-body"></div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot review"></span> Filming / Editing <span class="count">0</span></div>
+    <div class="column-body"></div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot done"></span> Published <span class="count">0</span></div>
+    <div class="column-body"></div>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<div id="summary" class="board hidden">
+  <div class="summary">
+    <h2 style="font-size: 18px; margin-bottom: 4px;">Progress Overview</h2>
+    <p style="color: #8b949e; font-size: 14px;">Last updated: Aug 22, 2026</p>
+    <div class="summary-grid">
+      <div class="stat-card">
+        <div class="stat-number green">14</div>
+        <div class="stat-label">Booktales Tasks Done</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number yellow">27</div>
+        <div class="stat-label">Booktales Remaining</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number blue">10</div>
+        <div class="stat-label">Build & Learn Projects</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number red">10</div>
+        <div class="stat-label">YouTube Ideas</div>
+      </div>
+    </div>
+    <div style="margin-top: 32px;">
+      <h3 style="font-size: 16px; margin-bottom: 12px;">Key Details</h3>
+      <div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; font-size: 14px; line-height: 2;">
+        <strong>Payment gateway:</strong> Razorpay (confirmed)<br>
+        <strong>Official email:</strong> booktalesdotin@gmail.com<br>
+        <strong>Hosting:</strong> AWS free tier (EC2 + RDS + S3 + CloudFront)<br>
+        <strong>Frontend deploy:</strong> Vercel<br>
+        <strong>Domain:</strong> booktales.in<br>
+        <strong>Launch region:</strong> India only (international behind feature switch)<br>
+        <strong>Open PRs:</strong> BE #2 (region switch) · BE #3 (exception handler) · BE #4 (webhook verify) · FE #2 (region switch) · FE #3 (image hosts) · FE #4 (admin auth)
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showBoard(id) {
+  document.querySelectorAll('.board').forEach(b => b.classList.add('hidden'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.remove('hidden');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
