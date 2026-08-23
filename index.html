@@ -66,7 +66,7 @@
 
 <header>
   <h1>Nik's Project Board</h1>
-  <span class="badge">14 / 41 Booktales</span>
+  <span class="badge">34 / 61 Booktales</span>
 </header>
 
 <div class="tabs">
@@ -79,233 +79,181 @@
 <!-- BOOKTALES BOARD -->
 <div id="booktales" class="board">
   <div class="column">
-    <div class="column-header"><span class="dot todo"></span> To Do — Phase 2-4 <span class="count">23</span></div>
+    <div class="column-header"><span class="dot todo"></span> To Do — Payments & Go-Live <span class="count">11</span></div>
     <div class="column-body">
       <div class="card">
         <div class="card-title">PAY-02: Create Razorpay account + get keys</div>
-        <div class="card-meta"><span class="tag phase">Phase 2</span></div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 2</span></div>
       </div>
       <div class="card">
-        <div class="card-title">PAY-03: Wire backend with real Razorpay keys</div>
-        <div class="card-meta"><span class="tag phase">Phase 2</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">PAY-04: Wire frontend Razorpay Checkout</div>
-        <div class="card-meta"><span class="tag phase">Phase 2</span></div>
+        <div class="card-title">PAY-03: Put real Razorpay keys in SSM + uncomment prod config</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 2</span></div>
       </div>
       <div class="card">
         <div class="card-title">PAY-05: Test e2e payment with test keys</div>
-        <div class="card-meta"><span class="tag phase">Phase 2</span></div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 2</span></div>
       </div>
       <div class="card">
-        <div class="card-title">PAY-06: Webhook endpoint + signature verification</div>
-        <div class="card-meta"><span class="tag phase">Phase 2</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AWS-01: Account + IAM setup</div>
-        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AWS-02: EC2 t2.micro instance</div>
-        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AWS-03: RDS PostgreSQL</div>
-        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AWS-04: S3 for static assets</div>
-        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AWS-05: CloudFront CDN</div>
-        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AWS-06: SES for emails</div>
-        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AWS-07: Java 21 + deploy JAR</div>
-        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AWS-08: systemd service</div>
-        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AWS-09: Nginx reverse proxy</div>
-        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AWS-10: SSL cert</div>
-        <div class="card-meta"><span class="tag phase">Phase 3</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">DEP-01: Deploy backend to EC2</div>
-        <div class="card-meta"><span class="tag phase">Phase 4</span></div>
+        <div class="card-title">DEP-01: terraform apply + deploy backend JAR to EC2</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 4</span></div>
       </div>
       <div class="card">
         <div class="card-title">DEP-02: Deploy frontend to Vercel</div>
         <div class="card-meta"><span class="tag phase">Phase 4</span></div>
       </div>
       <div class="card">
-        <div class="card-title">DEP-03: Domain + DNS</div>
+        <div class="card-title">DEP-03: Point booktales.in nameservers at Route53</div>
         <div class="card-meta"><span class="tag phase">Phase 4</span></div>
       </div>
       <div class="card">
-        <div class="card-title">DEP-04: Wire domain to Vercel + EC2</div>
+        <div class="card-title">DEP-04: Wire domain (api → EC2, apex/www → Vercel)</div>
         <div class="card-meta"><span class="tag phase">Phase 4</span></div>
       </div>
       <div class="card">
-        <div class="card-title">DEP-05: SES for order emails</div>
+        <div class="card-title">DEP-05: Request SES production access + verify sender</div>
         <div class="card-meta"><span class="tag phase">Phase 4</span></div>
       </div>
       <div class="card">
-        <div class="card-title">DEP-06: Full smoke test</div>
+        <div class="card-title">DEP-06: Full smoke test (browse → pay → order)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 4</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">DEP-07: Confirm CloudWatch alarms + SNS email</div>
         <div class="card-meta"><span class="tag phase">Phase 4</span></div>
       </div>
       <div class="card">
-        <div class="card-title">DEP-07: CloudWatch monitoring</div>
-        <div class="card-meta"><span class="tag phase">Phase 4</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">DEP-08: RDS backup strategy</div>
+        <div class="card-title">DEP-08: Verify RDS automated backups</div>
         <div class="card-meta"><span class="tag phase">Phase 4</span></div>
       </div>
     </div>
   </div>
 
   <div class="column">
-    <div class="column-header"><span class="dot todo"></span> To Do — User Auth <span class="count">8</span></div>
+    <div class="column-header"><span class="dot todo"></span> To Do — Testing, Content & Hardening <span class="count">6</span></div>
     <div class="column-body">
       <div class="card">
-        <div class="card-title">AUTH-01: OTP login endpoint (email or phone)</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
+        <div class="card-title">Real catalog content — replace placeholder copy, covers, prices, print PDFs</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag category">content</span></div>
       </div>
       <div class="card">
-        <div class="card-title">AUTH-02: OTP verify + JWT session</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
+        <div class="card-title">FE-08: E2E tests for checkout + admin (only region.spec exists)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">testing</span></div>
       </div>
       <div class="card">
-        <div class="card-title">AUTH-03: User profile endpoints (name/address)</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
+        <div class="card-title">INFRA-01: Move Terraform state to S3 + DynamoDB lock</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag category">hardening</span></div>
       </div>
       <div class="card">
-        <div class="card-title">AUTH-04: User entity/table</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
+        <div class="card-title">INFRA-02: Deploy script — render env file from SSM</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">hardening</span></div>
       </div>
       <div class="card">
-        <div class="card-title">AUTH-05: Login/signup page (email or phone + OTP)</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
+        <div class="card-title">INFRA-03: Install/config CloudWatch agent (ship app logs)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">hardening</span></div>
       </div>
       <div class="card">
-        <div class="card-title">AUTH-06: Profile page (edit name/address)</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 1.5</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AUTH-07: Auth context + protected routes</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1.5</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AUTH-08: Link orders to authenticated user</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1.5</span></div>
+        <div class="card-title">INFRA-04: App-level health / uptime alarm</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">hardening</span></div>
       </div>
     </div>
   </div>
 
   <div class="column">
-    <div class="column-header"><span class="dot todo"></span> To Do — Phase 1 <span class="count">4</span></div>
+    <div class="column-header"><span class="dot doing"></span> In Progress — AWS Infra (Terraform written, not applied) <span class="count">10</span></div>
     <div class="column-body">
       <div class="card">
-        <div class="card-title">BE-07: Stripe webhook replay check</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1</span></div>
+        <div class="card-title">AWS-01: IAM instance role + SSM secrets</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span><span class="tag pr">TF ✓ infra #1</span></div>
       </div>
       <div class="card">
-        <div class="card-title">BE-09: Tests for payment/money paths</div>
-        <div class="card-meta"><span class="tag low">low</span><span class="tag phase">Phase 1</span></div>
+        <div class="card-title">AWS-02: EC2 t3.micro + Elastic IP + cloud-init</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span><span class="tag pr">TF ✓ infra #1</span></div>
       </div>
       <div class="card">
-        <div class="card-title">FE-06: Wire real checkout flow</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1</span></div>
+        <div class="card-title">AWS-03: RDS PostgreSQL 16 (private, encrypted, 7d backups)</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span><span class="tag pr">TF ✓ infra #1</span></div>
       </div>
       <div class="card">
-        <div class="card-title">FE-08: E2E tests for checkout + admin</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag phase">Phase 1</span></div>
+        <div class="card-title">AWS-04: S3 assets + private print-files buckets</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span><span class="tag pr">TF ✓ infra #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AWS-05: CloudFront CDN (PriceClass_200, OAC)</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span><span class="tag pr">TF ✓ infra #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AWS-06: SES domain + DKIM + SMTP user</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span><span class="tag pr">TF ✓ infra #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AWS-07: Java 21 install (cloud-init)</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span><span class="tag pr">TF ✓ infra #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AWS-08: systemd service unit</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span><span class="tag pr">TF ✓ infra #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AWS-09: Nginx reverse proxy</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span><span class="tag pr">TF ✓ infra #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AWS-10: SSL via certbot (manual, post-DNS)</div>
+        <div class="card-meta"><span class="tag phase">Phase 3</span><span class="tag pr">TF ✓ infra #1</span></div>
       </div>
     </div>
   </div>
 
   <div class="column">
-    <div class="column-header"><span class="dot doing"></span> In Progress <span class="count">1</span></div>
-    <div class="column-body">
-      <div class="card">
-        <div class="card-title">PAY-01: Choose payment gateway</div>
-        <div class="card-meta"><span class="tag phase">Phase 2</span><span class="tag pr">Razorpay ✓</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="column-header"><span class="dot review"></span> In Review <span class="count">2</span></div>
-    <div class="column-body">
-      <div class="card">
-        <div class="card-title">India-only region switch (backend)</div>
-        <div class="card-meta"><span class="tag phase">feature flag</span><span class="tag pr">BE PR #2</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">India-only region switch (frontend)</div>
-        <div class="card-meta"><span class="tag phase">feature flag</span><span class="tag pr">FE PR #2</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="column-header"><span class="dot done"></span> Done <span class="count">14</span></div>
+    <div class="column-header"><span class="dot done"></span> Done <span class="count">34</span></div>
     <div class="column-body">
       <div class="card">
         <div class="card-title">BE-01: Kill STUB gateway in prod</div>
-        <div class="card-meta"><span class="tag critical">critical</span><span class="tag pr">PR #1</span></div>
+        <div class="card-meta"><span class="tag critical">critical</span><span class="tag pr">BE PR #1</span></div>
       </div>
       <div class="card">
         <div class="card-title">BE-02: Fail-fast on insecure admin defaults</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">BE PR #1</span></div>
       </div>
       <div class="card">
         <div class="card-title">BE-03: Wire refund to gateway</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">BE PR #1</span></div>
       </div>
       <div class="card">
         <div class="card-title">BE-04: Gateway timeouts (5s/15s)</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">BE PR #1</span></div>
       </div>
       <div class="card">
         <div class="card-title">BE-05: Admin login rate limiting</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">FE-01: Security headers (CSP, HSTS, etc.)</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">FE-02: Fix SITE_URL prod default</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">FE-03: Error boundaries</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">PR #1</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">FE-09: Official contact email set</div>
-        <div class="card-meta"><span class="tag low">low</span><span class="tag pr">PR #1</span></div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">BE PR #1</span></div>
       </div>
       <div class="card">
         <div class="card-title">BE-06: Webhook amount/currency verification</div>
         <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE PR #4</span></div>
       </div>
       <div class="card">
+        <div class="card-title">BE-07: Stripe webhook replay check</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE PR #6</span></div>
+      </div>
+      <div class="card">
         <div class="card-title">BE-08: Global exception handler</div>
         <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE PR #3</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">BE-09: Payment/money path tests</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag pr">BE PR #7</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-01: Security headers (CSP, HSTS, clickjack)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">FE PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-02: Fix SITE_URL prod default</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">FE PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">FE-03: Error boundaries (error.tsx + global)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">FE PR #1</span></div>
       </div>
       <div class="card">
         <div class="card-title">FE-04: Harden admin token (httpOnly cookies)</div>
@@ -319,6 +267,82 @@
         <div class="card-title">FE-07: Allow real image hosts in next.config</div>
         <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">FE PR #3</span></div>
       </div>
+      <div class="card">
+        <div class="card-title">FE-09: Official contact email set</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag pr">FE PR #1</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-01: OTP login endpoint</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">BE PR #5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-02: OTP verify + session</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">BE PR #5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-03: User profile endpoints</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">BE PR #5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-04: User entity/table</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">BE PR #5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-05: Login/signup page</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">FE PR #5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-06: Profile / account page</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">FE PR #5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-07: Auth context + protected routes</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">FE PR #5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUTH-08: Link orders to authenticated user</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE PR #5</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">PAY-01: Choose payment gateway → Razorpay</div>
+        <div class="card-meta"><span class="tag phase">Phase 2</span><span class="tag pr">Razorpay ✓</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">PAY-04: Wire frontend Razorpay Checkout JS</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">FE PR #6</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">PAY-06: Webhook endpoint + HMAC signature verify (code)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE code ✓</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Region switch — India-only (backend)</div>
+        <div class="card-meta"><span class="tag phase">feature flag</span><span class="tag pr">BE PR #2</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Region switch — India-only (frontend)</div>
+        <div class="card-meta"><span class="tag phase">feature flag</span><span class="tag pr">FE PR #2</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Reviews feature (BE API + admin moderation UI)</div>
+        <div class="card-meta"><span class="tag category">growth</span><span class="tag pr">BE #8 / FE #7</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Order personalization (editor + domain)</div>
+        <div class="card-meta"><span class="tag category">growth</span><span class="tag pr">BE #8 / FE #7</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Abandoned-cart capture / restore</div>
+        <div class="card-meta"><span class="tag category">growth</span><span class="tag pr">BE #8 / FE #7</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">PL-02: Stale-order auto-purge (approval timeout)</div>
+        <div class="card-meta"><span class="tag category">growth</span><span class="tag pr">BE PR #8</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Series pages (catalog browsing)</div>
+        <div class="card-meta"><span class="tag category">growth</span><span class="tag pr">FE PR #7</span></div>
+      </div>
     </div>
   </div>
 </div>
@@ -329,7 +353,7 @@
     <div class="column-header"><span class="dot doing"></span> In Progress <span class="count">1</span></div>
     <div class="column-body">
       <div class="card">
-        <div class="card-title">Booktales AWS Deployment</div>
+        <div class="card-title">Booktales AWS Deployment (Terraform written — apply next)</div>
         <div class="card-meta"><span class="tag qol">top priority</span><span class="tag category">infra</span></div>
       </div>
     </div>
@@ -452,19 +476,19 @@
 <div id="summary" class="board hidden">
   <div class="summary">
     <h2 style="font-size: 18px; margin-bottom: 4px;">Progress Overview</h2>
-    <p style="color: #8b949e; font-size: 14px;">Last updated: Aug 22, 2026</p>
+    <p style="color: #8b949e; font-size: 14px;">Last updated: Aug 23, 2026</p>
     <div class="summary-grid">
       <div class="stat-card">
-        <div class="stat-number green">14</div>
+        <div class="stat-number green">34</div>
         <div class="stat-label">Booktales Tasks Done</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number yellow">27</div>
-        <div class="stat-label">Booktales Remaining</div>
+        <div class="stat-number yellow">10</div>
+        <div class="stat-label">Infra In Progress (TF)</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number blue">10</div>
-        <div class="stat-label">Build & Learn Projects</div>
+        <div class="stat-number blue">17</div>
+        <div class="stat-label">Booktales To Do</div>
       </div>
       <div class="stat-card">
         <div class="stat-number red">10</div>
@@ -472,15 +496,27 @@
       </div>
     </div>
     <div style="margin-top: 32px;">
-      <h3 style="font-size: 16px; margin-bottom: 12px;">Key Details</h3>
+      <h3 style="font-size: 16px; margin-bottom: 12px;">Status</h3>
       <div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; font-size: 14px; line-height: 2;">
-        <strong>Payment gateway:</strong> Razorpay (confirmed)<br>
+        <strong>App:</strong> code-complete for launch (backend + frontend). Remaining work is infra apply, deploy, real content.<br>
+        <strong>Infra:</strong> full Terraform in <code>Booktales-infra</code> (PR #1 merged) — written but never applied; no state yet.<br>
+        <strong>Payment gateway:</strong> Razorpay — code done, needs account + real keys.<br>
         <strong>Official email:</strong> booktalesdotin@gmail.com<br>
-        <strong>Hosting:</strong> AWS free tier (EC2 + RDS + S3 + CloudFront)<br>
+        <strong>Hosting:</strong> AWS free tier ap-south-1 (EC2 t3.micro + RDS + S3 + CloudFront + SES)<br>
         <strong>Frontend deploy:</strong> Vercel<br>
         <strong>Domain:</strong> booktales.in<br>
         <strong>Launch region:</strong> India only (international behind feature switch)<br>
-        <strong>Open PRs:</strong> BE #2 (region switch) · BE #3 (exception handler) · BE #4 (webhook verify) · FE #2 (region switch) · FE #3 (image hosts) · FE #4 (admin auth)
+        <strong>PRs:</strong> all feature PRs merged (BE #1–8, FE #1–7, infra #1). No open PRs.
+      </div>
+    </div>
+    <div style="margin-top: 24px;">
+      <h3 style="font-size: 16px; margin-bottom: 12px;">Next Up</h3>
+      <div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; font-size: 14px; line-height: 2;">
+        1. AWS account + IAM, fill <code>terraform.tfvars</code>, run <code>terraform validate / plan / apply</code><br>
+        2. Razorpay account + keys → SSM → e2e test payment<br>
+        3. Deploy backend JAR (EC2) + frontend (Vercel), wire DNS, certbot TLS<br>
+        4. Smoke test end-to-end, then load real catalog content<br>
+        5. Hardening: remote TF state, deploy script, CloudWatch agent, app health alarm
       </div>
     </div>
   </div>
