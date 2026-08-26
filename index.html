@@ -40,6 +40,9 @@
   .tag.qol { background: #f7816633; color: #f78166; border: 1px solid #f7816655; }
   .tag.tinker { background: #d2992233; color: #d29922; border: 1px solid #d2992255; }
   .tag.yt { background: #ff000033; color: #ff6b6b; border: 1px solid #ff000044; }
+  .tag.audit { background: #da363322; color: #f85149; border: 1px solid #da363355; }
+  .tag.cr { background: #1f6feb22; color: #58a6ff; border: 1px solid #1f6feb44; }
+  .tag.ref { background: #a78bfa22; color: #a78bfa; border: 1px solid #a78bfa44; }
 
   .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
   .dot.todo { background: #484f58; }
@@ -66,7 +69,7 @@
 
 <header>
   <h1>Nik's Project Board</h1>
-  <span class="badge">34 / 61 Booktales</span>
+  <span class="badge">34 / 104 Booktales</span>
 </header>
 
 <div class="tabs">
@@ -200,6 +203,196 @@
       <div class="card">
         <div class="card-title">AWS-10: SSL via certbot (manual, post-DNS)</div>
         <div class="card-meta"><span class="tag phase">Phase 3</span><span class="tag pr">TF ✓ infra #1</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot review"></span> Audit Findings (daily) <span class="count">12</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">AUD-01: Double-refund — guard gateway call on payment status (AdminOrderService.refund) — real money loss</div>
+        <div class="card-meta"><span class="tag critical">critical</span><span class="tag audit">backend</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUD-02: Send Idempotency-Key on gateway refund + createSession calls</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag audit">backend</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUD-03: Test PaymentService.applyEvent (amount/currency mismatch, capture idempotency)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag audit">backend</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUD-04: Test refund service path (gateway call + record-only fallback + double-refund guard)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag audit">backend</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUD-05: CommonExceptionHandler — generic 409 message, log detail (stop internal leak)</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag audit">backend</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUD-06: Bounded retry on transient gateway failures (createSession; idempotent refund)</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag audit">backend</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUD-07: Guard/refuse STUB payment path in prod bundle (checkout/page.tsx:146)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag audit">frontend</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUD-08: Run Playwright against prod build (build && start), not npm run dev</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag audit">frontend</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUD-09: Confirm order "paid" from backend settlement, not client Razorpay resolve</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag audit">frontend</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUD-10: Stripe advertised in checkout footer but not wired — hide until wired</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag audit">frontend</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUD-11: POLICY_LAST_UPDATED hardcoded ("August 2026") — will go stale</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag audit">frontend</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUD-OPS: Repoint daily audit cron at origin/main (was reviewing a stale feature branch → false-alarm HIGHs)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag audit">ops</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot todo"></span> Backlog — Storefront v2 <span class="count">26</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">CR-01: Homepage hero → carousel of Booktales MVPs (replace "Gentle stories…" tagline)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag category">home</span><span class="tag ref">Wonderbly</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-02: Rework homepage book layout → YouTube-homepage style grid</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">home</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-03: Add-to-cart button on every book card</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag category">catalog</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-04: Book tags (interest, age) + searchable/filter by tags</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag category">catalog+be</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-05: Remove "also available on Amazon" section</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag category">book page</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-06: Change Booktales logo</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">brand</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-07: Sitewide promotions header/banner</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">global</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-08: Replace Account/Cart text with icons</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag category">header</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-09: Series support numbered AND unnumbered (data model + UI)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">series+be</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-10: Hide reviews section when a book has zero reviews</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag category">book page</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-11: Cart quantity stepper on cards + detail (+/- copies, remove at 0)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">cart</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-12: Coupon / discount-code implementation (apply + backend validation)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag category">payments+be</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-13: Verify tax (GST) information & display for India</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag category">payments</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-14: Show struck-through original price when a promo is applied</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">pricing</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-15: Remove "(optional)" from Phone field (phone becomes required)</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag category">checkout</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-16: Remove Country field for now (gate return behind intl flag)</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag category">checkout</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-17: Payment failure / cancelled state page</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag category">checkout</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-18: Redesign account page (Myntra-style)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">account</span><span class="tag ref">Myntra</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-19: Strip international references from all pages (incl. static), gated by flag</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">global</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-20: My Orders resolves on both phone AND email login</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">auth+be</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-21: Live search — show books as the user types</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">search</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-22: Allow personalization from the book detail page</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">book page</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-23: Checkout — pick from saved addresses / add new</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">checkout+be</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-24: Better card design on series pages</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag category">series</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-25: Bigger price display on book detail + cart page</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag category">pricing</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-26: Customer orders — note to email support (order # + reason) to cancel</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag category">orders</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot todo"></span> Backlog — Admin <span class="count">5</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">ADM-01: Admin dashboard → order & sales-performance oriented (revenue, trends, top books)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag category">admin</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">ADM-02: Cancel-order option in admin orders (actions email requests — see CR-26)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">admin</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">ADM-03: "Generate PDF" option in the print queue</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">admin</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">ADM-04: Automate the printing pipeline</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag category">later</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">ADM-05: Auto-personalization pipeline (brainstorm design before build)</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag category">brainstorm</span></div>
       </div>
     </div>
   </div>
@@ -476,23 +669,23 @@
 <div id="summary" class="board hidden">
   <div class="summary">
     <h2 style="font-size: 18px; margin-bottom: 4px;">Progress Overview</h2>
-    <p style="color: #8b949e; font-size: 14px;">Last updated: Aug 23, 2026</p>
+    <p style="color: #8b949e; font-size: 14px;">Last updated: Aug 26, 2026</p>
     <div class="summary-grid">
       <div class="stat-card">
         <div class="stat-number green">34</div>
-        <div class="stat-label">Booktales Tasks Done</div>
+        <div class="stat-label">Done</div>
       </div>
       <div class="stat-card">
         <div class="stat-number yellow">10</div>
         <div class="stat-label">Infra In Progress (TF)</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number blue">17</div>
-        <div class="stat-label">Booktales To Do</div>
+        <div class="stat-number blue">60</div>
+        <div class="stat-label">To Do (17 go-live + 12 audit + 31 backlog)</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number red">10</div>
-        <div class="stat-label">YouTube Ideas</div>
+        <div class="stat-number red">12</div>
+        <div class="stat-label">Open Audit Findings</div>
       </div>
     </div>
     <div style="margin-top: 32px;">
@@ -507,6 +700,14 @@
         <strong>Domain:</strong> booktales.in<br>
         <strong>Launch region:</strong> India only (international behind feature switch)<br>
         <strong>PRs:</strong> all feature PRs merged (BE #1–8, FE #1–7, infra #1). No open PRs.
+      </div>
+    </div>
+    <div style="margin-top: 24px;">
+      <h3 style="font-size: 16px; margin-bottom: 12px;">Daily Audit (Aug 26)</h3>
+      <div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; font-size: 14px; line-height: 2;">
+        <strong>1 real bug:</strong> AUD-01 double-refund (money loss) in <code>AdminOrderService.refund</code> — no status guard before the gateway call.<br>
+        <strong>Backend:</strong> money paths otherwise solid (prod guards, webhook signature + amount/currency verified). Gaps: idempotency keys, untested applyEvent/refund paths.<br>
+        <strong>Frontend HIGHs were a false alarm</strong> — the cron reviewed a stale feature branch (<code>c66a37c</code>); security headers, error boundaries, admin middleware, SITE_URL guard are all already on <code>main</code>. AUD-OPS repoints the cron at <code>origin/main</code>.
       </div>
     </div>
     <div style="margin-top: 24px;">
