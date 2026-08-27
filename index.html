@@ -69,7 +69,7 @@
 
 <header>
   <h1>Nik's Project Board</h1>
-  <span class="badge">34 / 114 Booktales</span>
+  <span class="badge">34 / 130 Booktales</span>
 </header>
 
 <div class="tabs">
@@ -249,6 +249,76 @@
       <div class="card">
         <div class="card-title">AWS-10: SSL via certbot (manual, post-DNS)</div>
         <div class="card-meta"><span class="tag phase">Phase 3</span><span class="tag pr">TF ✓ infra #1</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot todo"></span> Security &amp; Edge Cases (pre-launch) <span class="count">16</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">SEC-01: OTP verify has no brute-force limit — add per-code attempt lockout + rate-limit /otp/verify (OtpService.java:75)</div>
+        <div class="card-meta"><span class="tag critical">critical</span><span class="tag audit">security</span><span class="tag ref">in plan · Auth PR</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">SEC-02: Lost-webhook money loss — purge hard-deletes CREATED orders + payment rows with no gateway reconciliation (StaleOrderPurger.java:57)</div>
+        <div class="card-meta"><span class="tag critical">critical</span><span class="tag audit">money</span><span class="tag ref">in plan · own PR</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">SEC-03: Customer JWT in localStorage → httpOnly cookies (userApi.ts) — mirror admin proxy pattern</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag audit">security</span><span class="tag ref">in plan · Auth PR</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">SEC-04: Amount/currency mismatch silently dropped — customer charged but order not paid; alert + flag for manual refund (PaymentService.java:49)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag audit">money</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">SEC-05: No checkout idempotency — double-submit can create duplicate orders + gateway orders</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag audit">reliability</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">SEC-06: Guard STUB confirm path in prod bundle (checkoutApi.ts) — throw when NODE_ENV=production</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag audit">money</span><span class="tag ref">Money-hardening PR</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">SEC-07: Razorpay refund idempotency key (verify supported header first; app-layer guard already in place)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag audit">money</span><span class="tag ref">Money-hardening PR</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">SEC-08: Personalization / gift-message — length caps + escaping (XSS in admin, print-file breakage)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag audit">security</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">SEC-09: Reviews — restrict submission to verified buyers (fake-review spam)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">integrity</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">SEC-10: Gateway retry-on-transient (createSession; refund only under idempotency key)</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag audit">reliability</span><span class="tag ref">Money-hardening PR</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">EDGE-01: Refunds blocked for SHIPPED orders — state machine only allows SHIPPED→DELIVERED/REPRINT</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag category">ux</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">EDGE-02: Cart item unpublished / price-changed at checkout — degrade to "no longer available" (quote already server-side)</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag category">ux</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">EDGE-03: Zero-total orders (once coupons land) — gateways reject ₹0; need a "no payment required" path</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag category">payments</span><span class="tag ref">with CR-12</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CFG-01: localhost API fallback → fail-fast in prod (like SITE_URL guard)</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag category">config</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CFG-02: Tighten CSP unsafe-inline (verify Razorpay + Next inline scripts still run)</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag category">security</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CFG-03: Business address + GSTIN on legal/contact pages (needs Nik's details; unblocks CR-13 tax)</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag category">needs-input</span></div>
       </div>
     </div>
   </div>
@@ -726,8 +796,8 @@
         <div class="stat-label">Infra In Progress (TF)</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number blue">70</div>
-        <div class="stat-label">To Do (17 go-live + 12 audit + 31 backlog + 10 design)</div>
+        <div class="stat-number blue">86</div>
+        <div class="stat-label">To Do (+ 16 security/edge). NOTE: Done is understated — ~15 items merged Aug 26–27 pending a status refresh.</div>
       </div>
       <div class="stat-card">
         <div class="stat-number red">12</div>
