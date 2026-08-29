@@ -69,7 +69,7 @@
 
 <header>
   <h1>Nik's Project Board</h1>
-  <span class="badge">34 / 130 Booktales</span>
+  <span class="badge">34 / 136 Booktales</span>
 </header>
 
 <div class="tabs">
@@ -249,6 +249,36 @@
       <div class="card">
         <div class="card-title">AWS-10: SSL via certbot (manual, post-DNS)</div>
         <div class="card-meta"><span class="tag phase">Phase 3</span><span class="tag pr">TF ✓ infra #1</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot todo"></span> Content Ingest Pipeline <span class="count">6</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">CIP-01: Dev-preview catalog swap — import real books (books.csv + covers), host covers, tunnel preview</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag category">content</span><span class="tag ref">needs files</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CIP-02: PDF extraction (Apache PDFBox) — page count, trim size, render page-1 cover → PNG + tests</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag category">backend</span><span class="tag ref">buildable now</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CIP-05: Bulk importer — books.csv → create/update books via admin catalog API (idempotent by slug)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag category">backend</span><span class="tag ref">buildable now</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CIP-03: S3 wiring — AWS S3 SDK; upload PDFs → print-files bucket, covers → assets bucket</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">backend</span><span class="tag phase">needs AWS</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CIP-04: Admin ingest flow — upload/S3-drop PDF → DRAFT book pre-filled → admin completes + publishes</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">admin</span><span class="tag phase">needs AWS</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CIP-06: Launch content load — replace placeholder seed (V2/V4/V6) with real catalog in the live store</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">content</span><span class="tag phase">at deploy</span></div>
       </div>
     </div>
   </div>
