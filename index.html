@@ -69,7 +69,7 @@
 
 <header>
   <h1>Nik's Project Board</h1>
-  <span class="badge">76 / 138 Booktales</span>
+  <span class="badge">78 / 139 Booktales</span>
 </header>
 
 <div class="tabs">
@@ -82,14 +82,10 @@
 <!-- BOOKTALES BOARD -->
 <div id="booktales" class="board">
   <div class="column">
-    <div class="column-header"><span class="dot todo"></span> To Do — Payments & Go-Live <span class="count">11</span></div>
+    <div class="column-header"><span class="dot todo"></span> To Do — Payments & Go-Live <span class="count">10</span></div>
     <div class="column-body">
       <div class="card">
-        <div class="card-title">PAY-02: Create Razorpay account + get keys</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 2</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">PAY-03: Put real Razorpay keys in SSM + uncomment prod config</div>
+        <div class="card-title">PAY-03: Swap in production Razorpay keys (test keys work today) — put live keys in SSM + uncomment prod config</div>
         <div class="card-meta"><span class="tag high">high</span><span class="tag phase">Phase 2</span></div>
       </div>
       <div class="card">
@@ -380,8 +376,16 @@
   </div>
 
   <div class="column">
-    <div class="column-header"><span class="dot done"></span> Done <span class="count">76</span></div>
+    <div class="column-header"><span class="dot done"></span> Done <span class="count">78</span></div>
     <div class="column-body">
+      <div class="card">
+        <div class="card-title">PAY-02: Create Razorpay account + get keys</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">Razorpay ✓ (test keys live)</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">BE-21: Dedupe Flyway V17 migration collision (rename series migration to V18)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE #21</span></div>
+      </div>
       <div class="card">
         <div class="card-title">BE-01: Kill STUB gateway in prod</div>
         <div class="card-meta"><span class="tag critical">critical</span><span class="tag pr">BE PR #1</span></div>
@@ -693,8 +697,8 @@
     <div class="column-header"><span class="dot review"></span> In Review (open PR) <span class="count">1</span></div>
     <div class="column-body">
       <div class="card">
-        <div class="card-title">BE-21: Dedupe Flyway V17 migration collision (rename series migration to V18)</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE #21 open</span><span class="tag ref">in review</span></div>
+        <div class="card-title">Hide address country field/display behind intl flag (address book, account, order detail)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">FE #35 open</span><span class="tag ref">in review</span></div>
       </div>
     </div>
   </div>
@@ -832,15 +836,15 @@
     <p style="color: #8b949e; font-size: 14px;">Last updated: Aug 29, 2026</p>
     <div class="summary-grid">
       <div class="stat-card">
-        <div class="stat-number green">76</div>
-        <div class="stat-label">Done — merged &amp; verified in code (Storefront v2 CRs, Design Polish, security &amp; audit fixes through Aug 29)</div>
+        <div class="stat-number green">78</div>
+        <div class="stat-label">Done — merged &amp; verified in code (Storefront v2 CRs, Design Polish, security &amp; audit fixes through Aug 29; Razorpay account + test keys live)</div>
       </div>
       <div class="stat-card">
         <div class="stat-number yellow">10</div>
         <div class="stat-label">Infra In Progress (TF written, not applied)</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number blue">51</div>
+        <div class="stat-number blue">50</div>
         <div class="stat-label">To Do (incl. 11 security/edge, payments/go-live, content pipeline) + 1 open PR in review</div>
       </div>
       <div class="stat-card">
@@ -853,13 +857,13 @@
       <div style="background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; font-size: 14px; line-height: 2;">
         <strong>App:</strong> code-complete for launch (backend + frontend). Remaining work is infra apply, deploy, real content.<br>
         <strong>Infra:</strong> full Terraform in <code>Booktales-infra</code> (PR #1 merged) — written but never applied; no state yet.<br>
-        <strong>Payment gateway:</strong> Razorpay — code done, needs account + real keys.<br>
+        <strong>Payment gateway:</strong> Razorpay — code done, account created, running on TEST keys; swap to prod keys at go-live (PAY-03).<br>
         <strong>Official email:</strong> booktalesdotin@gmail.com<br>
         <strong>Hosting:</strong> AWS free tier ap-south-1 (EC2 t3.micro + RDS + S3 + CloudFront + SES)<br>
         <strong>Frontend deploy:</strong> Vercel<br>
         <strong>Domain:</strong> booktales.in<br>
         <strong>Launch region:</strong> India only (international behind feature switch)<br>
-        <strong>PRs:</strong> Storefront v2 + polish + hardening merged (BE #1–20, FE #1–34, infra #1). 1 open PR in review: BE #21 (dedupe Flyway V17 migration collision).
+        <strong>PRs:</strong> Storefront v2 + polish + hardening merged (BE #1–21, FE #1–34, infra #1). 1 open PR in review: FE #35 (hide address country behind intl flag).
       </div>
     </div>
     <div style="margin-top: 24px;">
