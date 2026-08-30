@@ -69,7 +69,7 @@
 
 <header>
   <h1>Nik's Project Board</h1>
-  <span class="badge">34 / 136 Booktales</span>
+  <span class="badge">76 / 138 Booktales</span>
 </header>
 
 <div class="tabs">
@@ -162,36 +162,8 @@
   </div>
 
   <div class="column">
-    <div class="column-header"><span class="dot todo"></span> Design Polish (frontend review) <span class="count">10</span></div>
+    <div class="column-header"><span class="dot todo"></span> Design Polish (frontend review) <span class="count">2</span></div>
     <div class="column-body">
-      <div class="card">
-        <div class="card-title">DSN-01: Brand type system via next/font (playful display + warm body) — no font loaded today</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag category">design</span><span class="tag ref">Wonderbly</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">DSN-02: Add favicon + app icon set (none exist → bare browser tab)</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag category">design</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">DSN-03: Branded OG/social image (og:image + opengraph-image) — shares render blank</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag category">seo</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">DSN-04: BookCard raw &lt;img&gt; → next/image (LCP + layout-shift on most-repeated element)</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag category">perf</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">DSN-05: Interaction states — focus-visible rings + :active press on buttons/links</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">a11y</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">DSN-06: Skeleton loading states (loading.tsx) — pages currently pop in</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">design</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">DSN-07: aria-live on "Added" toast + skip-to-content link</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">a11y</span></div>
-      </div>
       <div class="card">
         <div class="card-title">DSN-08: Surface craft — texture/depth + cover-led cards (flat/uniform today)</div>
         <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">design</span></div>
@@ -199,10 +171,6 @@
       <div class="card">
         <div class="card-title">DSN-09: Header active-page indication (aria-current); revisit all-caps micro-labels</div>
         <div class="card-meta"><span class="tag low">low</span><span class="tag category">design</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">DSN-10: Tabular-nums for prices; min-h-dvh; drop "worldwide" copy (see CR-19)</div>
-        <div class="card-meta"><span class="tag low">low</span><span class="tag category">polish</span></div>
       </div>
     </div>
   </div>
@@ -254,15 +222,11 @@
   </div>
 
   <div class="column">
-    <div class="column-header"><span class="dot todo"></span> Content Ingest Pipeline <span class="count">6</span></div>
+    <div class="column-header"><span class="dot todo"></span> Content Ingest Pipeline <span class="count">5</span></div>
     <div class="column-body">
       <div class="card">
         <div class="card-title">CIP-01: Dev-preview catalog swap — import real books (books.csv + covers), host covers, tunnel preview</div>
         <div class="card-meta"><span class="tag high">high</span><span class="tag category">content</span><span class="tag ref">needs files</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CIP-02: PDF extraction (Apache PDFBox) — page count, trim size, render page-1 cover → PNG + tests</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag category">backend</span><span class="tag ref">buildable now</span></div>
       </div>
       <div class="card">
         <div class="card-title">CIP-05: Bulk importer — books.csv → create/update books via admin catalog API (idempotent by slug)</div>
@@ -284,31 +248,15 @@
   </div>
 
   <div class="column">
-    <div class="column-header"><span class="dot todo"></span> Security &amp; Edge Cases (pre-launch) <span class="count">16</span></div>
+    <div class="column-header"><span class="dot todo"></span> Security &amp; Edge Cases (pre-launch) <span class="count">11</span></div>
     <div class="column-body">
-      <div class="card">
-        <div class="card-title">SEC-01: OTP verify has no brute-force limit — add per-code attempt lockout + rate-limit /otp/verify (OtpService.java:75)</div>
-        <div class="card-meta"><span class="tag critical">critical</span><span class="tag audit">security</span><span class="tag ref">in plan · Auth PR</span></div>
-      </div>
       <div class="card">
         <div class="card-title">SEC-02: Lost-webhook money loss — purge hard-deletes CREATED orders + payment rows with no gateway reconciliation (StaleOrderPurger.java:57)</div>
         <div class="card-meta"><span class="tag critical">critical</span><span class="tag audit">money</span><span class="tag ref">in plan · own PR</span></div>
       </div>
       <div class="card">
-        <div class="card-title">SEC-03: Customer JWT in localStorage → httpOnly cookies (userApi.ts) — mirror admin proxy pattern</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag audit">security</span><span class="tag ref">in plan · Auth PR</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">SEC-04: Amount/currency mismatch silently dropped — customer charged but order not paid; alert + flag for manual refund (PaymentService.java:49)</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag audit">money</span></div>
-      </div>
-      <div class="card">
         <div class="card-title">SEC-05: No checkout idempotency — double-submit can create duplicate orders + gateway orders</div>
         <div class="card-meta"><span class="tag medium">medium</span><span class="tag audit">reliability</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">SEC-06: Guard STUB confirm path in prod bundle (checkoutApi.ts) — throw when NODE_ENV=production</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag audit">money</span><span class="tag ref">Money-hardening PR</span></div>
       </div>
       <div class="card">
         <div class="card-title">SEC-07: Razorpay refund idempotency key (verify supported header first; app-layer guard already in place)</div>
@@ -339,10 +287,6 @@
         <div class="card-meta"><span class="tag low">low</span><span class="tag category">payments</span><span class="tag ref">with CR-12</span></div>
       </div>
       <div class="card">
-        <div class="card-title">CFG-01: localhost API fallback → fail-fast in prod (like SITE_URL guard)</div>
-        <div class="card-meta"><span class="tag low">low</span><span class="tag category">config</span></div>
-      </div>
-      <div class="card">
         <div class="card-title">CFG-02: Tighten CSP unsafe-inline (verify Razorpay + Next inline scripts still run)</div>
         <div class="card-meta"><span class="tag low">low</span><span class="tag category">security</span></div>
       </div>
@@ -354,27 +298,11 @@
   </div>
 
   <div class="column">
-    <div class="column-header"><span class="dot review"></span> Audit Findings (daily) <span class="count">12</span></div>
+    <div class="column-header"><span class="dot review"></span> Audit Findings (daily) <span class="count">7</span></div>
     <div class="column-body">
-      <div class="card">
-        <div class="card-title">AUD-01: Double-refund — guard gateway call on payment status (AdminOrderService.refund) — real money loss</div>
-        <div class="card-meta"><span class="tag critical">critical</span><span class="tag audit">backend</span></div>
-      </div>
       <div class="card">
         <div class="card-title">AUD-02: Send Idempotency-Key on gateway refund + createSession calls</div>
         <div class="card-meta"><span class="tag medium">medium</span><span class="tag audit">backend</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AUD-03: Test PaymentService.applyEvent (amount/currency mismatch, capture idempotency)</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag audit">backend</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AUD-04: Test refund service path (gateway call + record-only fallback + double-refund guard)</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag audit">backend</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">AUD-05: CommonExceptionHandler — generic 409 message, log detail (stop internal leak)</div>
-        <div class="card-meta"><span class="tag low">low</span><span class="tag audit">backend</span></div>
       </div>
       <div class="card">
         <div class="card-title">AUD-06: Bounded retry on transient gateway failures (createSession; idempotent refund)</div>
@@ -400,59 +328,15 @@
         <div class="card-title">AUD-11: POLICY_LAST_UPDATED hardcoded ("August 2026") — will go stale</div>
         <div class="card-meta"><span class="tag low">low</span><span class="tag audit">frontend</span></div>
       </div>
-      <div class="card">
-        <div class="card-title">AUD-OPS: Repoint daily audit cron at origin/main (was reviewing a stale feature branch → false-alarm HIGHs)</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag audit">ops</span></div>
-      </div>
     </div>
   </div>
 
   <div class="column">
-    <div class="column-header"><span class="dot todo"></span> Backlog — Storefront v2 <span class="count">26</span></div>
+    <div class="column-header"><span class="dot todo"></span> Backlog — Storefront v2 <span class="count">4</span></div>
     <div class="column-body">
       <div class="card">
-        <div class="card-title">CR-01: Homepage hero → carousel of Booktales MVPs (replace "Gentle stories…" tagline)</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag category">home</span><span class="tag ref">Wonderbly</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-02: Rework homepage book layout → YouTube-homepage style grid</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">home</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-03: Add-to-cart button on every book card</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag category">catalog</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-04: Book tags (interest, age) + searchable/filter by tags</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag category">catalog+be</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-05: Remove "also available on Amazon" section</div>
-        <div class="card-meta"><span class="tag low">low</span><span class="tag category">book page</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-06: Change Booktales logo</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">brand</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-07: Sitewide promotions header/banner</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">global</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-08: Replace Account/Cart text with icons</div>
-        <div class="card-meta"><span class="tag low">low</span><span class="tag category">header</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-09: Series support numbered AND unnumbered (data model + UI)</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">series+be</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-10: Hide reviews section when a book has zero reviews</div>
-        <div class="card-meta"><span class="tag low">low</span><span class="tag category">book page</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-11: Cart quantity stepper on cards + detail (+/- copies, remove at 0)</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">cart</span></div>
+        <div class="card-title">CR-04: Book tags (interest, age) + searchable/filter by tags — backend done (BE #17), FE filter UI pending</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag category">catalog+be</span><span class="tag pr">BE #17</span><span class="tag ref">FE UI pending</span></div>
       </div>
       <div class="card">
         <div class="card-title">CR-12: Coupon / discount-code implementation (apply + backend validation)</div>
@@ -465,54 +349,6 @@
       <div class="card">
         <div class="card-title">CR-14: Show struck-through original price when a promo is applied</div>
         <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">pricing</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-15: Remove "(optional)" from Phone field (phone becomes required)</div>
-        <div class="card-meta"><span class="tag low">low</span><span class="tag category">checkout</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-16: Remove Country field for now (gate return behind intl flag)</div>
-        <div class="card-meta"><span class="tag low">low</span><span class="tag category">checkout</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-17: Payment failure / cancelled state page</div>
-        <div class="card-meta"><span class="tag high">high</span><span class="tag category">checkout</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-18: Redesign account page (Myntra-style)</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">account</span><span class="tag ref">Myntra</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-19: Strip international references from all pages (incl. static), gated by flag</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">global</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-20: My Orders resolves on both phone AND email login</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">auth+be</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-21: Live search — show books as the user types</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">search</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-22: Allow personalization from the book detail page</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">book page</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-23: Checkout — pick from saved addresses / add new</div>
-        <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">checkout+be</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-24: Better card design on series pages</div>
-        <div class="card-meta"><span class="tag low">low</span><span class="tag category">series</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-25: Bigger price display on book detail + cart page</div>
-        <div class="card-meta"><span class="tag low">low</span><span class="tag category">pricing</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">CR-26: Customer orders — note to email support (order # + reason) to cancel</div>
-        <div class="card-meta"><span class="tag low">low</span><span class="tag category">orders</span></div>
       </div>
     </div>
   </div>
@@ -544,7 +380,7 @@
   </div>
 
   <div class="column">
-    <div class="column-header"><span class="dot done"></span> Done <span class="count">34</span></div>
+    <div class="column-header"><span class="dot done"></span> Done <span class="count">76</span></div>
     <div class="column-body">
       <div class="card">
         <div class="card-title">BE-01: Kill STUB gateway in prod</div>
@@ -682,6 +518,184 @@
         <div class="card-title">Series pages (catalog browsing)</div>
         <div class="card-meta"><span class="tag category">growth</span><span class="tag pr">FE PR #7</span></div>
       </div>
+      <div class="card">
+        <div class="card-title">CR-01: Homepage hero → carousel of Booktales MVPs (replace "Gentle stories…" tagline)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">FE #30 · FE #31 · BE #18</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-02: Rework homepage book layout → YouTube-homepage style grid</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">FE #30</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-03: Add-to-cart button on every book card</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">FE #18</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-05: Remove "also available on Amazon" section</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag pr">FE #8</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-06: Change Booktales logo</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">FE #10</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-07: Sitewide promotions header/banner</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">FE #28</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-08: Replace Account/Cart text with icons</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag pr">FE #18</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-09: Series support numbered AND unnumbered (data model + UI)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE #20 · FE #34</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-10: Hide reviews section when a book has zero reviews</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag pr">FE #19</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-11: Cart quantity stepper on cards + detail (+/- copies, remove at 0)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">FE #26</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-15: Remove "(optional)" from Phone field (phone becomes required)</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag pr">FE #8</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-16: Remove Country field for now (gate return behind intl flag)</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag pr">FE #8</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-17: Payment failure / cancelled state page</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">FE #27</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-18: Redesign account page (Myntra-style)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">FE #12 · FE #14</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-19: Strip international references from all pages (incl. static), gated by flag</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">FE #8</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-20: My Orders resolves on both phone AND email login</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE #19</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-21: Live search — show books as the user types</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">FE #32</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-22: Allow personalization from the book detail page</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">FE #29</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-23: Checkout — pick from saved addresses / add new</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE #12 · FE #15</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-24: Better card design on series pages</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag pr">FE #23</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-25: Bigger price display on book detail + cart page</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag pr">FE #8</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CR-26: Customer orders — note to email support (order # + reason) to cancel</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag pr">FE #8</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">DSN-01: Brand type system via next/font (playful display + warm body)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">FE #22</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">DSN-02: Favicon + app icon set</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">FE #10</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">DSN-03: Branded OG/social image (og:image + opengraph-image)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">FE #20</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">DSN-04: BookCard raw &lt;img&gt; → next/image (LCP + layout-shift)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">FE #9 · FE #24</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">DSN-05: Interaction states — focus-visible rings + :active press on buttons/links</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">FE #25</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">DSN-06: Skeleton loading states (loading.tsx)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">FE #33</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">DSN-07: aria-live on "Added" toast + skip-to-content link</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">FE #25 · FE #33</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">DSN-10: Tabular-nums for prices; min-h-dvh; drop "worldwide" copy</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag pr">FE #8</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CIP-02: PDF extraction (Apache PDFBox) — page count, trim size, render page-1 cover → PNG + tests</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">BE #16</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">SEC-01: OTP verify brute-force lockout + rate-limit /otp/verify</div>
+        <div class="card-meta"><span class="tag critical">critical</span><span class="tag pr">BE #14</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">SEC-03: Customer JWT → httpOnly cookies (mirror admin proxy pattern)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">FE #16</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">SEC-04: Amount/currency mismatch — reject capture, don't mark paid (alert is log-only)</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">BE #4</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">SEC-06: Guard STUB confirm path in prod bundle</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">FE #17</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CFG-01: localhost API fallback → fail-fast in prod</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag pr">FE #21</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUD-01: Double-refund — guard gateway call on payment status (AdminOrderService.refund)</div>
+        <div class="card-meta"><span class="tag critical">critical</span><span class="tag pr">BE #9</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUD-03: Test PaymentService.applyEvent (amount/currency mismatch, capture idempotency)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE #7</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUD-04: Test refund service path (gateway call + record-only fallback + double-refund guard)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE #9</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUD-05: CommonExceptionHandler — generic 409 message, log detail</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag pr">BE #10</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">AUD-OPS: Repoint daily audit cron at origin/main</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag pr">cron repoint ✓</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">BE-18: isFeatured flag on books + featured query (CR-01 follow-up)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE #18</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="column-header"><span class="dot review"></span> In Review (open PR) <span class="count">1</span></div>
+    <div class="column-body">
+      <div class="card">
+        <div class="card-title">BE-21: Dedupe Flyway V17 migration collision (rename series migration to V18)</div>
+        <div class="card-meta"><span class="tag medium">medium</span><span class="tag pr">BE #21 open</span><span class="tag ref">in review</span></div>
+      </div>
     </div>
   </div>
 </div>
@@ -815,22 +829,22 @@
 <div id="summary" class="board hidden">
   <div class="summary">
     <h2 style="font-size: 18px; margin-bottom: 4px;">Progress Overview</h2>
-    <p style="color: #8b949e; font-size: 14px;">Last updated: Aug 26, 2026</p>
+    <p style="color: #8b949e; font-size: 14px;">Last updated: Aug 29, 2026</p>
     <div class="summary-grid">
       <div class="stat-card">
-        <div class="stat-number green">52</div>
-        <div class="stat-label">Done (incl. 18 merged Aug 26–27: CR-05/06/15/16/18/19/23/25/26, DSN-02/04/10, AUD-01–05/OPS)</div>
+        <div class="stat-number green">76</div>
+        <div class="stat-label">Done — merged &amp; verified in code (Storefront v2 CRs, Design Polish, security &amp; audit fixes through Aug 29)</div>
       </div>
       <div class="stat-card">
         <div class="stat-number yellow">10</div>
-        <div class="stat-label">Infra In Progress (TF)</div>
+        <div class="stat-label">Infra In Progress (TF written, not applied)</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number blue">68</div>
-        <div class="stat-label">To Do (incl. 16 security/edge). Merged cards still shown in backlog columns are tagged "✓ merged".</div>
+        <div class="stat-number blue">51</div>
+        <div class="stat-label">To Do (incl. 11 security/edge, payments/go-live, content pipeline) + 1 open PR in review</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number red">12</div>
+        <div class="stat-number red">7</div>
         <div class="stat-label">Open Audit Findings</div>
       </div>
     </div>
@@ -845,7 +859,7 @@
         <strong>Frontend deploy:</strong> Vercel<br>
         <strong>Domain:</strong> booktales.in<br>
         <strong>Launch region:</strong> India only (international behind feature switch)<br>
-        <strong>PRs:</strong> all feature PRs merged (BE #1–8, FE #1–7, infra #1). No open PRs.
+        <strong>PRs:</strong> Storefront v2 + polish + hardening merged (BE #1–20, FE #1–34, infra #1). 1 open PR in review: BE #21 (dedupe Flyway V17 migration collision).
       </div>
     </div>
     <div style="margin-top: 24px;">
