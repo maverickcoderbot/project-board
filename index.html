@@ -128,7 +128,7 @@
   </div>
 
   <div class="column">
-    <div class="column-header"><span class="dot todo"></span> To Do — Testing, Content & Hardening <span class="count">6</span></div>
+    <div class="column-header"><span class="dot todo"></span> To Do — Testing, Content & Hardening <span class="count">9</span></div>
     <div class="column-body">
       <div class="card">
         <div class="card-title">Real catalog content — replace placeholder copy, covers, prices, print PDFs</div>
@@ -153,6 +153,18 @@
       <div class="card">
         <div class="card-title">INFRA-04: App-level health / uptime alarm</div>
         <div class="card-meta"><span class="tag medium">medium</span><span class="tag category">hardening</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">SEC-01: Bump next → 15.5.27 (fixes SSG/ISR cache poisoning — cross-user content + DoS; we self-host, so this applies). From 2026-10-09 security pass (WB-02). Run Playwright e2e after.</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag category">security</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">SEC-02: npm audit fix — sharp &lt;0.35.5 (librsvg CVE-2026-96889, used in image ingest) + source-map-js DoS. Both in-range/clean. Security pass WB-02.</div>
+        <div class="card-meta"><span class="tag high">high</span><span class="tag category">security</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">SEC-03: Guest order lookup GET /api/orders/{orderNumber} returns 500 instead of 400 when required email param is missing. Robustness, not a vuln. Security pass WB-01.</div>
+        <div class="card-meta"><span class="tag low">low</span><span class="tag category">security</span></div>
       </div>
     </div>
   </div>
